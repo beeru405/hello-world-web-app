@@ -18,8 +18,6 @@ pipeline {
                     def tomcatHome = '/opt/apache-tomcat-9.0.85'
                     def warFile = sh(returnStdout: true, script: 'ls target/*.jar').trim()
                     sh "cp ${warFile} ${tomcatHome}/webapps"
-                    sh "${tomcatHome}/bin/shutdown.sh"
-                    sh "${tomcatHome}/bin/startup.sh"
                 }
             }
         }
